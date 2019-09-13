@@ -18,7 +18,9 @@ namespace Pharmacy.DB
                 string pass = "";
                 connection = new MySqlConnection("server=localhost; database=pharmasy; user id=root;password=" + pass);
                 connection.Open();
+                connection.Clone();
                 return connection;
+              
             }
             catch (MySqlException ex)
             {

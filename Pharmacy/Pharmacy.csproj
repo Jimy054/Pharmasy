@@ -82,34 +82,82 @@
     <Compile Include="Model\SalesDetailsModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\CategoryView.cs">
+    <Compile Include="Views\Category\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CategoryView.Designer.cs">
+    <Compile Include="Views\Category\AddCategory.Designer.cs">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Category\CategoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Category\CategoryView.Designer.cs">
       <DependentUpon>CategoryView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ClientView.cs">
+    <Compile Include="Views\Category\UpdateCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ClientView.Designer.cs">
+    <Compile Include="Views\Category\UpdateCategory.Designer.cs">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\ClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\ClientView.Designer.cs">
       <DependentUpon>ClientView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductView.cs">
+    <Compile Include="Views\Client\UpdateClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ProductView.Designer.cs">
+    <Compile Include="Views\Client\UpdateClient.Designer.cs">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product\AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Product\AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Product\ProductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Product\ProductView.Designer.cs">
       <DependentUpon>ProductView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProviderView.cs">
+    <Compile Include="Views\Product\UpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ProviderView.Designer.cs">
+    <Compile Include="Views\Product\UpdateProduct.Designer.cs">
+      <DependentUpon>UpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Provider\AddProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\AddProvider.Designer.cs">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Provider\ProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\ProviderView.Designer.cs">
       <DependentUpon>ProviderView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PurchaseView.cs">
+    <Compile Include="Views\Provider\UpdateProvider.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\PurchaseView.Designer.cs">
+    <Compile Include="Views\Provider\UpdateProvider.Designer.cs">
+      <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseView.Designer.cs">
       <DependentUpon>PurchaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Purchase\AddPurchase.cs">
@@ -118,16 +166,16 @@
     <Compile Include="Views\Purchase\AddPurchase.Designer.cs">
       <DependentUpon>AddPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SalesView.cs">
+    <Compile Include="Views\Sale\SalesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SalesView.Designer.cs">
+    <Compile Include="Views\Sale\SalesView.Designer.cs">
       <DependentUpon>SalesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Sales\AddSale.cs">
+    <Compile Include="Views\Sale\AddSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Sales\AddSale.Designer.cs">
+    <Compile Include="Views\Sale\AddSale.Designer.cs">
       <DependentUpon>AddSale.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -142,28 +190,52 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\CategoryView.resx">
+    <EmbeddedResource Include="Views\Category\AddCategory.resx">
+      <DependentUpon>AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Category\CategoryView.resx">
       <DependentUpon>CategoryView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ClientView.resx">
+    <EmbeddedResource Include="Views\Category\UpdateCategory.resx">
+      <DependentUpon>UpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\ClientView.resx">
       <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProductView.resx">
+    <EmbeddedResource Include="Views\Client\UpdateClient.resx">
+      <DependentUpon>UpdateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Product\AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Product\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ProviderView.resx">
+    <EmbeddedResource Include="Views\Product\UpdateProduct.resx">
+      <DependentUpon>UpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Provider\AddProvider.resx">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Provider\ProviderView.resx">
       <DependentUpon>ProviderView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\PurchaseView.resx">
+    <EmbeddedResource Include="Views\Provider\UpdateProvider.resx">
+      <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PurchaseView.resx">
       <DependentUpon>PurchaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\AddPurchase.resx">
       <DependentUpon>AddPurchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SalesView.resx">
+    <EmbeddedResource Include="Views\Sale\SalesView.resx">
       <DependentUpon>SalesView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Sales\AddSale.resx">
+    <EmbeddedResource Include="Views\Sale\AddSale.resx">
       <DependentUpon>AddSale.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

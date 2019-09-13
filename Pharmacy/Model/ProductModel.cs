@@ -15,9 +15,19 @@ namespace Pharmacy.Model
 
         public string Name { get; set; }
 
+        public string Description { get; set; }
+
         public int Quantity { get; set; }
 
+        public int Units { get; set; }
+
+
         public decimal Price { get; set; }
+
+        public decimal PriceSale { get; set; }
+
+        public decimal Gain { get; set; }
+        
 
         public string Image { get; set; }
 

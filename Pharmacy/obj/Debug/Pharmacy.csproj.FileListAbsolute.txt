@@ -24,3 +24,11 @@ C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Purchas
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Purchase.AddPurchase.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.SalesView.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Sales.AddSale.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Category.AddCategory.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Category.UpdateCategory.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Client.AddClient.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Client.UpdateClient.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Provider.AddProvider.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Provider.UpdateProvider.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.AddProduct.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.UpdateProduct.resources
