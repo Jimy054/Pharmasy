@@ -118,6 +118,12 @@
     <Compile Include="Views\Client\UpdateClient.Designer.cs">
       <DependentUpon>UpdateClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Menu\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Menu\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Product\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     <Compile Include="Views\Purchase\AddPurchase.Designer.cs">
       <DependentUpon>AddPurchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Sale\SaleCanceled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sale\SaleCanceled.Designer.cs">
+      <DependentUpon>SaleCanceled.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Sale\SalesView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +220,9 @@
     <EmbeddedResource Include="Views\Client\UpdateClient.resx">
       <DependentUpon>UpdateClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Menu\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Product\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\AddPurchase.resx">
       <DependentUpon>AddPurchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sale\SaleCanceled.resx">
+      <DependentUpon>SaleCanceled.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Sale\SalesView.resx">
       <DependentUpon>SalesView.cs</DependentUpon>

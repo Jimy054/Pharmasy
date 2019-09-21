@@ -14,6 +14,7 @@ namespace Pharmacy.Model
         public int Quantity { get; set; }
         public float SubTotal { get; set; }
         public float Discount { get; set; }
+        public string Observation { get; set; }
 
         [ForeignKey("Sales")]
         public int SalesID { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Pharmacy.Views;
+using Pharmacy.Views.Menu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,6 +43,7 @@ namespace Pharmacy
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            OpenDialog(new Dashboard());
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -72,6 +74,11 @@ namespace Pharmacy
         private void button5_Click(object sender, EventArgs e)
         {
             OpenDialog(new SalesView());
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            OpenDialog(new Dashboard());
         }
     }
 }

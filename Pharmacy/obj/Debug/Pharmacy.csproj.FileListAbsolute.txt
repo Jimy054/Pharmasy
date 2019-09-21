@@ -32,3 +32,5 @@ C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Provide
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Provider.UpdateProvider.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.AddProduct.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.UpdateProduct.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Sale.SaleCanceled.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Menu.Dashboard.resources

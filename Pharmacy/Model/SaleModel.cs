@@ -13,7 +13,7 @@ namespace Pharmacy.Model
         public DateTime SalesDate { get; set; }
         public float SalesTotal { get; set; }
         public string SalesReference { get; set; }
-
+        public string Serie { get; set; }
         [ForeignKey("Clients")]
         public int ClientID { get; set; }
         public ICollection<ClientModel> Client { get; set; }

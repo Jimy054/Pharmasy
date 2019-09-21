@@ -9,16 +9,17 @@ namespace Pharmacy.DB
 {
     class Connection
     {
+
+
         public static MySqlConnection MakeConnection()
         {
             MySqlConnection connection;
-
             try
             {
                 string pass = "";
                 connection = new MySqlConnection("server=localhost; database=pharmasy; user id=root;password=" + pass);
-                connection.Open();
-                connection.Clone();
+               connection.Open();
+              //  connection.Close();
                 return connection;
               
             }
