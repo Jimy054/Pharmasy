@@ -80,13 +80,22 @@ namespace Pharmacy.Views
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var form = Application.OpenForms.OfType<SaleCanceled>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new SaleCanceled();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+                // this.Hide();
+            }
+            form.Activate();
+/*
             var f2 = new SaleCanceled();
             f2.StartPosition = FormStartPosition.Manual;
             f2.Location = this.Location;
             f2.Size = this.Size;
             f2.Show();
-
+            */
         }
     }
 

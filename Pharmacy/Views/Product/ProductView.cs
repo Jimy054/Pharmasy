@@ -70,7 +70,7 @@ namespace Pharmacy.Views
                 {
                     column1.Visible = false;
                 }
-                column1.Width = 81;
+                column1.Width = 82;
             }
         }
 
@@ -200,6 +200,19 @@ namespace Pharmacy.Views
                 dv.RowFilter = string.Format("Nombre like '%{0}%'", textBox1.Text);
                 dataGridView1.DataSource = dv;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = Application.OpenForms.OfType<CanceledProduct>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new CanceledProduct();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+                // this.Hide();
+            }
+            form.Activate();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

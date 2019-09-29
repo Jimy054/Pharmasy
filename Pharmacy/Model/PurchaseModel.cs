@@ -14,7 +14,7 @@ namespace Pharmacy.Model
         public DateTime PurchasesDate { get; set; }
         public float  PurchasesTotal { get; set; }
         public string PurchasesReference { get; set; }
-        
+        public string Serie { get; set; }
         [ForeignKey("Provider")]
         public int ProviderID { get; set; }
         public ProviderModel Provider { get; set; }

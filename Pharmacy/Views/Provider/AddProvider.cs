@@ -21,6 +21,7 @@ namespace Pharmacy.Views.Provider
         public AddProvider()
         {
             InitializeComponent();
+            btnNew.Enabled = false;
         }
 
 
@@ -104,6 +105,35 @@ namespace Pharmacy.Views.Provider
             {
                 txtCode.ReadOnly = false;
             }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            validate();
+        }
+
+
+        public void validate()
+        {
+            if ( txtName.Text == "")
+            {
+                btnNew.Enabled = false;
+            }
+            else
+            {
+
+                btnNew.Enabled = true;
+            }
+        }
+
+        private void txtNIT_TextChanged(object sender, EventArgs e)
+        {
+           // validate();
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+            validate();
         }
     }
 }

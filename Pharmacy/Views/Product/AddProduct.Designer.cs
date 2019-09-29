@@ -31,7 +31,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmbProvider = new System.Windows.Forms.ComboBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.rtDescription = new System.Windows.Forms.RichTextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +71,9 @@
             // cmbProvider
             // 
             this.cmbProvider.FormattingEnabled = true;
-            this.cmbProvider.Location = new System.Drawing.Point(574, 542);
+            this.cmbProvider.Items.AddRange(new object[] {
+            "Agregar Proveedor"});
+            this.cmbProvider.Location = new System.Drawing.Point(574, 482);
             this.cmbProvider.Name = "cmbProvider";
             this.cmbProvider.Size = new System.Drawing.Size(214, 21);
             this.cmbProvider.TabIndex = 33;
@@ -80,20 +82,13 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(146, 540);
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Agregar Categoría"});
+            this.cmbCategory.Location = new System.Drawing.Point(146, 478);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(214, 21);
             this.cmbCategory.TabIndex = 32;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(146, 487);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(214, 20);
-            this.txtPrice.TabIndex = 31;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
-            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // txtQuantity
             // 
@@ -107,7 +102,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(417, 536);
+            this.label7.Location = new System.Drawing.Point(424, 478);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 25);
             this.label7.TabIndex = 29;
@@ -117,7 +112,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 540);
+            this.label6.Location = new System.Drawing.Point(10, 472);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 25);
             this.label6.TabIndex = 28;
@@ -127,11 +122,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 487);
+            this.label5.Location = new System.Drawing.Point(-1, 540);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 22);
             this.label5.TabIndex = 27;
             this.label5.Text = "Precio Compra";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -240,18 +236,20 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 430);
+            this.label9.Location = new System.Drawing.Point(4, 574);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 25);
             this.label9.TabIndex = 40;
             this.label9.Text = "Precio Venta";
+            this.label9.Visible = false;
             // 
             // txtPriceSale
             // 
-            this.txtPriceSale.Location = new System.Drawing.Point(146, 430);
+            this.txtPriceSale.Location = new System.Drawing.Point(134, 579);
             this.txtPriceSale.Name = "txtPriceSale";
             this.txtPriceSale.Size = new System.Drawing.Size(214, 20);
             this.txtPriceSale.TabIndex = 41;
+            this.txtPriceSale.Visible = false;
             this.txtPriceSale.TextChanged += new System.EventHandler(this.txtPriceSale_TextChanged);
             this.txtPriceSale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPriceSale_KeyPress);
             // 
@@ -259,18 +257,20 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(424, 456);
+            this.label10.Location = new System.Drawing.Point(481, 573);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 25);
             this.label10.TabIndex = 42;
             this.label10.Text = "Ganacia";
+            this.label10.Visible = false;
             // 
             // txtGain
             // 
-            this.txtGain.Location = new System.Drawing.Point(574, 456);
+            this.txtGain.Location = new System.Drawing.Point(572, 573);
             this.txtGain.Name = "txtGain";
             this.txtGain.Size = new System.Drawing.Size(214, 20);
             this.txtGain.TabIndex = 43;
+            this.txtGain.Visible = false;
             this.txtGain.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGain_KeyPress);
             // 
             // txtUnit
@@ -309,10 +309,21 @@
             this.rtDescription.TabIndex = 47;
             this.rtDescription.Text = "";
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(134, 542);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(214, 20);
+            this.txtPrice.TabIndex = 31;
+            this.txtPrice.Visible = false;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(798, 682);
             this.Controls.Add(this.rtDescription);
             this.Controls.Add(this.label12);
@@ -354,7 +365,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox cmbProvider;
         private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -377,5 +387,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.RichTextBox rtDescription;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }

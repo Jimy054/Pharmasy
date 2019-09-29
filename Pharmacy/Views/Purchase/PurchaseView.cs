@@ -51,8 +51,6 @@ namespace Pharmacy.Views
             addPurchase.ShowDialog();
             GridFill();
 
-
-
         }
 
 
@@ -74,6 +72,18 @@ namespace Pharmacy.Views
                 DataGridViewColumn column1 = dataGridView1.Columns[i];
                 column1.Width = 188;
             }
+
+        }
+
+        private void PurchaseView_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CanceledPurchase canceledPurchase = new CanceledPurchase();
+            canceledPurchase.ShowDialog();
 
         }
     }

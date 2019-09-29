@@ -67,8 +67,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtSerie = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label13
@@ -222,14 +223,14 @@
             // 
             // dtDate
             // 
-            this.dtDate.Location = new System.Drawing.Point(841, 42);
+            this.dtDate.Location = new System.Drawing.Point(872, 46);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(172, 20);
             this.dtDate.TabIndex = 32;
             // 
             // txtReference
             // 
-            this.txtReference.Location = new System.Drawing.Point(579, 43);
+            this.txtReference.Location = new System.Drawing.Point(605, 44);
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(155, 20);
             this.txtReference.TabIndex = 31;
@@ -238,7 +239,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label4.Location = new System.Drawing.Point(12, 90);
+            this.label4.Location = new System.Drawing.Point(3, 100);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 29);
             this.label4.TabIndex = 30;
@@ -248,7 +249,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(754, 41);
+            this.label3.Location = new System.Drawing.Point(784, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 22);
             this.label3.TabIndex = 29;
@@ -258,7 +259,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(440, 43);
+            this.label2.Location = new System.Drawing.Point(490, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 22);
             this.label2.TabIndex = 28;
@@ -276,6 +277,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(29, 428);
             this.dataGridView1.Name = "dataGridView1";
@@ -316,9 +318,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1116, 0);
+            this.button1.Location = new System.Drawing.Point(1136, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 32);
+            this.button1.Size = new System.Drawing.Size(43, 26);
             this.button1.TabIndex = 53;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
@@ -327,7 +329,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(579, 69);
+            this.checkBox1.Location = new System.Drawing.Point(605, 70);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(100, 17);
             this.checkBox1.TabIndex = 54;
@@ -380,6 +382,8 @@
             this.cmbNIT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbNIT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbNIT.FormattingEnabled = true;
+            this.cmbNIT.Items.AddRange(new object[] {
+            "Agregar Cliente"});
             this.cmbNIT.Location = new System.Drawing.Point(93, 151);
             this.cmbNIT.Name = "cmbNIT";
             this.cmbNIT.Size = new System.Drawing.Size(183, 21);
@@ -401,6 +405,8 @@
             this.cmbCodeProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbCodeProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCodeProduct.FormattingEnabled = true;
+            this.cmbCodeProduct.Items.AddRange(new object[] {
+            "Agregar Producto"});
             this.cmbCodeProduct.Location = new System.Drawing.Point(194, 253);
             this.cmbCodeProduct.Name = "cmbCodeProduct";
             this.cmbCodeProduct.Size = new System.Drawing.Size(216, 21);
@@ -430,7 +436,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(224, 47);
+            this.label18.Location = new System.Drawing.Point(269, 44);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(85, 22);
             this.label18.TabIndex = 69;
@@ -438,25 +444,45 @@
             // 
             // txtSerie
             // 
-            this.txtSerie.Location = new System.Drawing.Point(320, 49);
+            this.txtSerie.Location = new System.Drawing.Point(369, 44);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(100, 20);
             this.txtSerie.TabIndex = 70;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(4, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1150, 27);
+            this.panel1.Size = new System.Drawing.Size(1126, 26);
             this.panel1.TabIndex = 71;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // label20
+            // 
+            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label20.Location = new System.Drawing.Point(-1, 90);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(1180, 10);
+            this.label20.TabIndex = 107;
+            // 
+            // label19
+            // 
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label19.Location = new System.Drawing.Point(-1, 188);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(1180, 10);
+            this.label19.TabIndex = 108;
             // 
             // AddSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 663);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1180, 663);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtSerie);
             this.Controls.Add(this.label18);
@@ -501,7 +527,6 @@
             this.Text = "AddSale";
             this.Load += new System.EventHandler(this.AddSale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +573,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
     }
 }

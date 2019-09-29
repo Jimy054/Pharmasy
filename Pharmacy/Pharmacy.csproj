@@ -88,6 +88,12 @@
     <Compile Include="Views\Category\AddCategory.Designer.cs">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Category\CanceledCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Category\CanceledCategory.Designer.cs">
+      <DependentUpon>CanceledCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Category\CategoryView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,12 @@
     </Compile>
     <Compile Include="Views\Client\AddClient.Designer.cs">
       <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\CanceledClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\CanceledClient.Designer.cs">
+      <DependentUpon>CanceledClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Client\ClientView.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,12 @@
     <Compile Include="Views\Product\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Product\CanceledProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Product\CanceledProduct.Designer.cs">
+      <DependentUpon>CanceledProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Product\ProductView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +166,12 @@
     <Compile Include="Views\Provider\AddProvider.Designer.cs">
       <DependentUpon>AddProvider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Provider\CanceledProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\CanceledProvider.Designer.cs">
+      <DependentUpon>CanceledProvider.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Provider\ProviderView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +183,12 @@
     </Compile>
     <Compile Include="Views\Provider\UpdateProvider.Designer.cs">
       <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\CanceledPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\CanceledPurchase.Designer.cs">
+      <DependentUpon>CanceledPurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Purchase\PurchaseView.cs">
       <SubType>Form</SubType>
@@ -205,6 +235,9 @@
     <EmbeddedResource Include="Views\Category\AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Category\CanceledCategory.resx">
+      <DependentUpon>CanceledCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Category\CategoryView.resx">
       <DependentUpon>CategoryView.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Client\AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\CanceledClient.resx">
+      <DependentUpon>CanceledClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Client\ClientView.resx">
       <DependentUpon>ClientView.cs</DependentUpon>
@@ -226,6 +262,9 @@
     <EmbeddedResource Include="Views\Product\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Product\CanceledProduct.resx">
+      <DependentUpon>CanceledProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Product\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,11 +274,17 @@
     <EmbeddedResource Include="Views\Provider\AddProvider.resx">
       <DependentUpon>AddProvider.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Provider\CanceledProvider.resx">
+      <DependentUpon>CanceledProvider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Provider\ProviderView.resx">
       <DependentUpon>ProviderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Provider\UpdateProvider.resx">
       <DependentUpon>UpdateProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\CanceledPurchase.resx">
+      <DependentUpon>CanceledPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\PurchaseView.resx">
       <DependentUpon>PurchaseView.cs</DependentUpon>

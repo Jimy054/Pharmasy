@@ -18,13 +18,15 @@ namespace Pharmacy.Views.Client
         public AddClient()
         {
             InitializeComponent();
+            btnNew.Enabled = false;
         }
 
         ClientModel clientModel = new ClientModel();
-
+        bool activate;
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            validate();
             if (checkBox1.Checked)
             {
                 txtCode.ReadOnly = true;
@@ -108,6 +110,36 @@ namespace Pharmacy.Views.Client
 
 
             }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            validate();
+        }
+
+
+
+        public void validate()
+        {
+            if (txtName.Text == "")
+            {
+                btnNew.Enabled = false;
+            }
+            else
+            {
+
+                btnNew.Enabled = true;
+            }
+        }
+
+        private void txtNIT_TextChanged(object sender, EventArgs e)
+        {
+           // validate();
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+            validate();
         }
     }
 }

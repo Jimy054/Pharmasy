@@ -66,13 +66,17 @@
             this.txtNIT.Name = "txtNIT";
             this.txtNIT.Size = new System.Drawing.Size(202, 20);
             this.txtNIT.TabIndex = 37;
+            this.txtNIT.TextChanged += new System.EventHandler(this.txtNIT_TextChanged);
             // 
             // cmbMethodPayment
             // 
             this.cmbMethodPayment.FormattingEnabled = true;
             this.cmbMethodPayment.Items.AddRange(new object[] {
             "Efectivo",
-            "Tarjeta de Crédito"});
+            "Tarjeta de Crédito",
+            "Cheque",
+            "Letra de Cambio",
+            "Pagare"});
             this.cmbMethodPayment.Location = new System.Drawing.Point(183, 283);
             this.cmbMethodPayment.Name = "cmbMethodPayment";
             this.cmbMethodPayment.Size = new System.Drawing.Size(178, 21);
@@ -132,6 +136,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(202, 20);
             this.txtName.TabIndex = 29;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtCode
             // 
@@ -139,6 +144,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(178, 20);
             this.txtCode.TabIndex = 28;
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // label7
             // 
@@ -229,6 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.label1);

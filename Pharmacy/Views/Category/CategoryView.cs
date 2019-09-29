@@ -57,8 +57,8 @@ namespace Pharmacy.Views
             column.Visible = false;
             DataGridViewColumn column1 = dataGridView1.Columns[1];
             DataGridViewColumn column2 = dataGridView1.Columns[2];      
-            column1.Width = 427;
-            column2.Width = 427;
+            column1.Width = 416;
+            column2.Width = 416;
             
             //     80.Columns.GetColumnsWidth();
 
@@ -141,6 +141,20 @@ namespace Pharmacy.Views
             {
                 Connection.MakeConnection().Close();
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var form = Application.OpenForms.OfType<CanceledCategory>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new CanceledCategory();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+                // this.Hide();
+            }
+            form.Activate();
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

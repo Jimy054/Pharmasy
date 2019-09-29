@@ -20,8 +20,8 @@ namespace Pharmacy.Views.Category
         public UpdateCategory(int id, string name, string code )
         {
             InitializeComponent();
-            MessageBox.Show(id+"");
-            MessageBox.Show("Name" + name + "Code" + code);
+           //MessageBox.Show(id+"");
+          //  MessageBox.Show("Name" + name + "Code" + code);
             categoryModel.CategoryID = id;
             txtName.Text = name;
             txtCode.Text = code;

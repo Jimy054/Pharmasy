@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using Pharmacy.DB;
 using Pharmacy.Model;
+using Pharmacy.Views.Category;
+using Pharmacy.Views.Provider;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,12 +30,13 @@ namespace Pharmacy.Views.Product
         OpenFileDialog openFileDialog = new OpenFileDialog();
   
         float price1,price2;
+        MySqlCommand mySqlCommand;
 
 
         public void ComboboxFillCategory()
         {
             //   MySqlDataAdapter sqlData = new MySqlDataAdapter();
-            MySqlCommand mySqlCommand = new MySqlCommand("select * from Categories", Connection.MakeConnection());
+            mySqlCommand = new MySqlCommand("select * from Categories  where Status='Ingresado'", Connection.MakeConnection());
             MySqlDataReader myReader;
             try
             {
@@ -54,15 +57,26 @@ namespace Pharmacy.Views.Product
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand("select * from Categories where name='" + cmbCategory.Text + "'", Connection.MakeConnection());
-            MySqlDataReader myReader;
-            myReader = mySqlCommand.ExecuteReader();
-            while (myReader.Read())
+            if (cmbCategory.SelectedIndex==0)
             {
-                string id = myReader.GetInt32("CategoryID").ToString();
-                productModel.CategoryID = int.Parse(id);
+                AddCategory addCategory = new AddCategory();
+                addCategory.ShowDialog();
+                ComboboxFillCategory();
+            }
+            else
+            {
+
+                mySqlCommand = new MySqlCommand("select * from Categories where  name='" + cmbCategory.Text + "'", Connection.MakeConnection());
+                MySqlDataReader myReader;
+                myReader = mySqlCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string id = myReader.GetInt32("CategoryID").ToString();
+                    productModel.CategoryID = int.Parse(id);
 
 
+
+                }
 
             }
 
@@ -77,7 +91,7 @@ namespace Pharmacy.Views.Product
         public void ComboboxFillProvider()
         {
             //   MySqlDataAdapter sqlData = new MySqlDataAdapter();
-            MySqlCommand mySqlCommand = new MySqlCommand("select * from Providers", Connection.MakeConnection());
+            mySqlCommand = new MySqlCommand("select * from Providers  where Status='Ingresado' ", Connection.MakeConnection());
             MySqlDataReader myReader;
 
             myReader = mySqlCommand.ExecuteReader();
@@ -94,19 +108,24 @@ namespace Pharmacy.Views.Product
 
         private void cmbProvider_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand("select * from Providers where name='" + cmbProvider.Text + "'", Connection.MakeConnection());
-            MySqlDataReader myReader;
-
-            myReader = mySqlCommand.ExecuteReader();
-
-            while (myReader.Read())
+            if (cmbProvider.SelectedIndex==0)
             {
-
-                string id = myReader.GetInt32("ProviderID").ToString();
-
-                productModel.ProviderID = int.Parse(id);
-
+                AddProvider addProvider = new AddProvider();
+                addProvider.ShowDialog();
+                ComboboxFillProvider();
             }
+            else
+            {
+                mySqlCommand = new MySqlCommand("select * from Providers where name='" + cmbProvider.Text + "'", Connection.MakeConnection());
+                MySqlDataReader myReader;
+                myReader = mySqlCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    string id = myReader.GetInt32("ProviderID").ToString();
+                    productModel.ProviderID = int.Parse(id);
+                }
+            }
+
         }
 
 

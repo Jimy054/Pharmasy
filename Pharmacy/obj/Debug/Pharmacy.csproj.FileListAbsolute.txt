@@ -16,7 +16,6 @@ C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\bin\Debug\Google.Protobuf.xml
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\bin\Debug\MySql.Data.xml
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\bin\Debug\Renci.SshNet.xml
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.csproj.CopyComplete
-C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.csprojAssemblyReference.cache
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.ClientView.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.ProviderView.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.ProductView.resources
@@ -34,3 +33,9 @@ C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.UpdateProduct.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Sale.SaleCanceled.resources
 C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Menu.Dashboard.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Category.CanceledCategory.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Client.CanceledClient.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.csprojAssemblyReference.cache
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Product.CanceledProduct.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Provider.CanceledProvider.resources
+C:\Users\jimmy\Desktop\Examen\Pharmacy\Pharmacy\obj\Debug\Pharmacy.Views.Purchase.CanceledPurchase.resources

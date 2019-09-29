@@ -122,6 +122,22 @@ namespace Pharmacy.Views
             GridFill();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+           // var fom = new CanceledProvider
+            
+            
+            var form = Application.OpenForms.OfType<CanceledProvider>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new CanceledProvider();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+                // this.Hide();
+            }
+            form.Activate();
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             DataView dv = new DataView(dtProvider);

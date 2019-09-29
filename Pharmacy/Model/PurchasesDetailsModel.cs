@@ -14,7 +14,7 @@ namespace Pharmacy.Model
         public int Quantity { get; set; }
         public float SubTotal { get; set; }
         public float Discount { get; set; }
-
+        public string Observation { get; set; }
         [ForeignKey("Purchases")]
         public int PurchasesID { get; set; }
         public ICollection<PurchaseModel> Purchases { get; set; }

@@ -61,7 +61,7 @@ namespace Pharmacy.Views
 
                 DataGridViewColumn column1 = dataGridView1.Columns[i];
 
-                column1.Width = 103;
+                column1.Width = 100;
             }
 
         }
@@ -131,6 +131,19 @@ namespace Pharmacy.Views
                     code = Search.NIT;
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = Application.OpenForms.OfType<CanceledClient>().FirstOrDefault();
+            if (form == null)
+            {
+                form = new CanceledClient();
+                form.StartPosition = FormStartPosition.CenterParent;
+                form.ShowDialog(this);
+                // this.Hide();
+            }
+            form.Activate();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

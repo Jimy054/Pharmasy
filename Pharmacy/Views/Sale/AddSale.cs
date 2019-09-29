@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Pharmacy.Views.Product;
+using Pharmacy.Views.Client;
 
 namespace Pharmacy.Views.Sales
 {
@@ -26,6 +28,7 @@ namespace Pharmacy.Views.Sales
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hand,int wasg, int wparam,int lparam);
+        MySqlCommand mySqlCommand;
 
 
         public AddSale(int id)
@@ -46,7 +49,7 @@ namespace Pharmacy.Views.Sales
 
         }
 
-
+        //Methods
         public void Clear()
         {
             cmbProduct.Text = "";
@@ -54,9 +57,10 @@ namespace Pharmacy.Views.Sales
             txtPrice.Text = "";
             txtDiscount.Text = "";
             cmbCodeProduct.Text = "";
+            richTextBox1.Text = "";
         }
 
-        public void validate()
+        public void ValidateSalesDetails()
         {
             if (cmbCodeProduct.Text =="" && txtQuantity.Text == "" && txtPrice.Text == ""&&  txtDiscount.Text == "" && cmbCodeProduct.Text =="")
             {
@@ -67,15 +71,57 @@ namespace Pharmacy.Views.Sales
                 btnNewDetails.Enabled = true;   
             }
         }
-        
+
+        public void OnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public void GridFill()
+        {
+            try
+            {
+                MySqlDataAdapter sqlData = new MySqlDataAdapter("ListSalesDetails", Connection.MakeConnection());
+                sqlData.SelectCommand.Parameters.AddWithValue("_SalesID", salesDetailsModel.SalesID);
+                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataTable dtProduct = new DataTable();
+                sqlData.Fill(dtProduct);
+
+
+                dataGridView1.DataSource = dtProduct;
+                DataGridViewColumn column = dataGridView1.Columns[0];
+                column.Visible = false;
+
+                for (int i = 0; i < 7; i++)
+                {
+                    DataGridViewColumn column1 = dataGridView1.Columns[i];
+                    column1.Width = 143;
+                }
+            }
+            finally
+            {
+
+                Connection.MakeConnection().Close();
+            }
+        }
 
         //Client
-            
+
         private void ComboboxFillClient()
         {
             try
             {
-                MySqlCommand mySqlCommand = new MySqlCommand("select name from Clients", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select name from Clients where Status='Ingresado'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
 
@@ -96,7 +142,7 @@ namespace Pharmacy.Views.Sales
         {
             try
             {
-                MySqlCommand mySqlCommand = new MySqlCommand("select code from Clients", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select code from Clients where Status='Ingresado' ", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
                 AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
@@ -112,17 +158,13 @@ namespace Pharmacy.Views.Sales
             {
                 Connection.MakeConnection().Close();
             }
-          
-
-     
-
         }
 
         private void TextFillNIT()
         {
             try
             {
-                MySqlCommand mySqlCommand = new MySqlCommand("select nit from Clients", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select nit from Clients where Status='Ingresado'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
                 AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
@@ -148,7 +190,7 @@ namespace Pharmacy.Views.Sales
             try
             {
               //  Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select ClientID,NIT,Code from Clients where name='" + cmbClient.Text + "'", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select ClientID,NIT,Code from Clients where name='" + cmbClient.Text + "'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
                 while (myReader.Read())
@@ -167,8 +209,6 @@ namespace Pharmacy.Views.Sales
             {
                 Connection.MakeConnection().Close();
             }
-
-
          //  
         }
         
@@ -176,8 +216,49 @@ namespace Pharmacy.Views.Sales
         {
             try
             {
-                //Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select ClientID,NIT,Code,Name from Clients where nit='" + cmbNIT.Text + "'", Connection.MakeConnection());
+                if (cmbNIT.SelectedIndex==0)
+                {
+                    AddClient addClient = new AddClient();
+                    addClient.ShowDialog();
+                    TextFillNIT();
+                }
+                else {
+
+
+                    //Connection.MakeConnection().Open();
+                    mySqlCommand = new MySqlCommand("select ClientID,NIT,Code,Name from Clients where  nit='" + cmbNIT.Text + "'", Connection.MakeConnection());
+                    MySqlDataReader myReader;
+                    myReader = mySqlCommand.ExecuteReader();
+
+                    while (myReader.Read())
+                    {
+                        string clientID = myReader.GetInt32("ClientID").ToString();
+                        string nit = myReader.GetString("NIT");
+                        string code = myReader.GetString("Code");
+                        string name = myReader.GetString("Name");
+                        //     string address = myReader.GetString("address");
+                        cmbClient.Text = name;
+                        salesModel.ClientID = int.Parse(clientID);
+                        cmbNIT.Text = nit;
+                        cmbCode.Text = code;
+
+                        Connection.MakeConnection().Close();
+                        //    txtAddress.Text = address;
+                    }
+                }
+            }
+            finally
+            {
+                Connection.MakeConnection().Close();
+            }
+
+        }
+
+        private void cmbCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                mySqlCommand = new MySqlCommand("select ClientID,NIT,Code,Name from Clients where  code='" + cmbCode.Text + "'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
 
@@ -187,7 +268,7 @@ namespace Pharmacy.Views.Sales
                     string nit = myReader.GetString("NIT");
                     string code = myReader.GetString("Code");
                     string name = myReader.GetString("Name");
-               //     string address = myReader.GetString("address");
+                    //     string address = myReader.GetString("address");
                     cmbClient.Text = name;
                     salesModel.ClientID = int.Parse(clientID);
                     cmbNIT.Text = nit;
@@ -201,12 +282,6 @@ namespace Pharmacy.Views.Sales
             {
                 Connection.MakeConnection().Close();
             }
-
-        }
-
-        private void cmbCode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
 
@@ -217,7 +292,7 @@ namespace Pharmacy.Views.Sales
             try
             {
                 //Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select code from Products", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select code from Products where Status='Ingresado'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
                 AutoCompleteStringCollection MyCollection = new AutoCompleteStringCollection();
@@ -240,22 +315,32 @@ namespace Pharmacy.Views.Sales
         {
             try
             {
-                //Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select ProductID,Price,Units,Name from Products where code='" + cmbCodeProduct.Text + "'", Connection.MakeConnection());
-                MySqlDataReader myReader;
-                myReader = mySqlCommand.ExecuteReader();
 
-
-                while (myReader.Read())
+                if (cmbCodeProduct.SelectedIndex == 0)
                 {
-                    string productID = myReader.GetInt32("ProductID").ToString();
-                    string price = myReader.GetString("Price");
-                    quantity = myReader.GetString("units");
-                    string name = myReader.GetString("Name");
-                    salesDetailsModel.ProductID = int.Parse(productID);
-                    txtPrice.Text = price;
-                    txtQuantity.Text = quantity;
-                    cmbProduct.Text = name;
+                    AddProduct addProduct = new AddProduct();
+                    addProduct.ShowDialog();
+                    ComboboxFillProduct();
+                }
+                else
+                {
+                    //Connection.MakeConnection().Open();
+                    mySqlCommand = new MySqlCommand("select ProductID,Price,Units,Name from Products where code='" + cmbCodeProduct.Text + "'", Connection.MakeConnection());
+                    MySqlDataReader myReader;
+                    myReader = mySqlCommand.ExecuteReader();
+
+
+                    while (myReader.Read())
+                    {
+                        string productID = myReader.GetInt32("ProductID").ToString();
+                        string price = myReader.GetString("Price");
+                        quantity = myReader.GetString("units");
+                        string name = myReader.GetString("Name");
+                        salesDetailsModel.ProductID = int.Parse(productID);
+                        txtPrice.Text = price;
+                        txtQuantity.Text = quantity;
+                        cmbProduct.Text = name;
+                    }
                 }
             }
             finally
@@ -270,7 +355,7 @@ namespace Pharmacy.Views.Sales
             try
             {
                 //   Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select name from Products", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select name from Products where Status='Ingresado'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
 
@@ -293,7 +378,7 @@ namespace Pharmacy.Views.Sales
             try
             {
                 // Connection.MakeConnection().Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("select ProductID,code,units,SalePrice from Products where name='" + cmbProduct.Text + "'", Connection.MakeConnection());
+                mySqlCommand = new MySqlCommand("select ProductID,code,units,SalePrice from Products where  name='" + cmbProduct.Text + "'", Connection.MakeConnection());
                 MySqlDataReader myReader;
                 myReader = mySqlCommand.ExecuteReader();
                 while (myReader.Read())
@@ -335,7 +420,7 @@ namespace Pharmacy.Views.Sales
 
                 salesModel.SalesReference = "";
                 command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("_Serie",salesModel.Serie);
+                    command.Parameters.AddWithValue("_Series",salesModel.Serie);
                 command.Parameters.AddWithValue("_SalesID", salesModel.SalesID);
                 command.Parameters.AddWithValue("_SalesReference", salesModel.SalesReference);
                 command.Parameters.AddWithValue("_SalesDate", salesModel.SalesDate);
@@ -348,7 +433,7 @@ namespace Pharmacy.Views.Sales
             else
             {
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("_Serie", salesModel.Serie);
+                command.Parameters.AddWithValue("_Series", salesModel.Serie);
                 command.Parameters.AddWithValue("_SalesID", salesModel.SalesID);
                 command.Parameters.AddWithValue("_SalesReference", salesModel.SalesReference);
                 command.Parameters.AddWithValue("_SalesDate", salesModel.SalesDate);
@@ -358,7 +443,7 @@ namespace Pharmacy.Views.Sales
                 MessageBox.Show("Registro Actualizado Exitosamente", "Registro Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 
-                Connection.MakeConnection().Close();
+              //  Connection.MakeConnection().Close();
             }
             }
             finally
@@ -377,7 +462,14 @@ namespace Pharmacy.Views.Sales
             {
 
                 MySqlCommand command = new MySqlCommand("InsertSalesDetails", Connection.MakeConnection());
-                salesDetailsModel.Quantity = int.Parse(txtQuantity.Text);
+                if (txtDiscount.Text=="")
+                {
+                    salesDetailsModel.Quantity = 0;
+                }
+                else
+                {
+                    salesDetailsModel.Quantity = int.Parse(txtQuantity.Text);
+                }
                 salesDetailsModel.Price = float.Parse(txtPrice.Text);
                 salesDetailsModel.Observation = richTextBox1.Text;
                 if (txtDiscount.Text != "")
@@ -414,46 +506,51 @@ namespace Pharmacy.Views.Sales
 
 
 
-        public void GridFill()
-        {
-            try
-            {
-                MySqlDataAdapter sqlData = new MySqlDataAdapter("ListSalesDetails", Connection.MakeConnection());
-                sqlData.SelectCommand.Parameters.AddWithValue("_SalesID", salesDetailsModel.SalesID);
-                sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
-                DataTable dtProduct = new DataTable();
-                sqlData.Fill(dtProduct);
-
-
-                dataGridView1.DataSource = dtProduct;
-                DataGridViewColumn column = dataGridView1.Columns[0];
-                column.Visible = false;
-
-                for (int i = 0; i < 7; i++)
-                {
-                    DataGridViewColumn column1 = dataGridView1.Columns[i];
-                    column1.Width = 143;
-                }
-            }
-            finally
-            {
-
-                Connection.MakeConnection().Close();
-            }
-        }
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
+            salesModel.Serie = txtSerie.Text;
+            salesModel.SalesReference = txtReference.Text;
+            
+
             try
             {
                 MySqlCommand command = new MySqlCommand("DeleteSales", Connection.MakeConnection());
                 command.CommandType = CommandType.StoredProcedure;
+                if (txtReference.Text == "" )
+                {
+
+                    salesModel.SalesReference = "Nula";
+
+                }
+                else
+                {
+                    salesModel.SalesReference = txtReference.Text;
+                }
+
+                if (txtSerie.Text=="") {
+                    salesModel.Serie = "Nula";
+                }
+                else
+                {
+                    salesModel.Serie = "Nula";
+                }
+                if (cmbNIT.Text == "")
+                {
+                    salesModel.ClientID = 1;
+                }
+
                 command.Parameters.AddWithValue("_SalesID", salesModel.SalesID);
+                command.Parameters.AddWithValue("_SalesReference", salesModel.SalesReference);
+                command.Parameters.AddWithValue("_Series", salesModel.Serie);
+                command.Parameters.AddWithValue("_ClientID", salesModel.ClientID);
+
+
                 DialogResult dialogResult = MessageBox.Show("Desea Cancelar La Factura", "Eliminar Registro", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    command.ExecuteNonQuery();
-                    // MessageBox.Show("Registro Elimnado Exitosamente", "Registro Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    command.ExecuteNonQuery();                   
                     this.Close();
                 }
             }
@@ -466,7 +563,7 @@ namespace Pharmacy.Views.Sales
 
         private void txtQuantity_TextChanged_1(object sender, EventArgs e)
         {
-            validate();
+            ValidateSalesDetails();
             if (txtQuantity.Text == "")
             {
                 quantity1 = 0;
@@ -477,11 +574,11 @@ namespace Pharmacy.Views.Sales
             }
 
             label13.Text = (price1 * quantity1).ToString();
-            MessageBox.Show("Qunatity"+quantity1);
-            MessageBox.Show("Details Modal"+salesDetailsModel.Quantity);
-
+        //    MessageBox.Show("Qunatity"+quantity1);
+          //  MessageBox.Show("Details Modal"+salesDetailsModel.Quantity);
             control = int.Parse(quantity);
-            if (quantity1 >control )
+
+            if (quantity1 >control) 
             {
                 MessageBox.Show("No hay suficientes productos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnNewDetails.Enabled = false;
@@ -491,7 +588,7 @@ namespace Pharmacy.Views.Sales
 
         private void txtPrice_TextChanged_1(object sender, EventArgs e)
         {
-            validate();
+            ValidateSalesDetails();
             if (txtPrice.Text == "")
             {
                 price1 = 0.00f;
@@ -531,18 +628,15 @@ namespace Pharmacy.Views.Sales
                 {
                     cmbCodeProduct.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     cmbProduct.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                    txtPrice.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    txtQuantity.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    txtDiscount.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                    label13.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    salesDetailsModel.SalesDetailsID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                //    MessageBox.Show(salesDetailsModel.SalesDetailsID+"");
+                    txtPrice.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    txtQuantity.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    txtDiscount.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    label13.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                    salesDetailsModel.SalesDetailsID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());                
                 }
             }
             catch (Exception)
             {
-
-
                 MessageBox.Show("Debe de escoger un código válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -557,6 +651,7 @@ namespace Pharmacy.Views.Sales
             if (dialogResult == DialogResult.Yes)
             {
                 command.ExecuteNonQuery();
+                Clear();
                 GridFill();
                 // MessageBox.Show("Registro Elimnado Exitosamente", "Registro Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //    this.Close();
@@ -565,12 +660,12 @@ namespace Pharmacy.Views.Sales
 
         private void cmbCodeProduct_TextChanged(object sender, EventArgs e)
         {
-            validate();
+            ValidateSalesDetails();
         }
 
         private void cmbProduct_TextChanged(object sender, EventArgs e)
         {
-            validate();
+            ValidateSalesDetails();
         }
 
         private void ckDiscount_CheckedChanged(object sender, EventArgs e)
@@ -604,7 +699,7 @@ namespace Pharmacy.Views.Sales
             {
                 discount1 = 0;
             }
-            else
+            else 
             {
                discount1 = float.Parse(txtDiscount.Text);
             }
@@ -627,22 +722,12 @@ namespace Pharmacy.Views.Sales
             OnlyNumbers(sender,e);
         }
 
-
-        public void OnlyNumbers(object sender, KeyPressEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-        (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
 
+       
 
     }
 }

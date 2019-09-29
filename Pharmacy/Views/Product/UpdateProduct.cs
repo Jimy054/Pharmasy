@@ -33,8 +33,8 @@ namespace Pharmacy.Views.Product
             txtPrice.Text = price.ToString();
             txtPriceSale.Text = priceSale.ToString();
             txtGain.Text = gain.ToString();
-            MessageBox.Show("Provider " + providerID);
-            MessageBox.Show("Category " + categoryID);
+          //  MessageBox.Show("Provider " + providerID);
+        //    MessageBox.Show("Category " + categoryID);
             productModel.ProviderID = providerID;
             productModel.CategoryID = categoryID;
             SearchCategory();
